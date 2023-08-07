@@ -1,0 +1,50 @@
+{
+  "name": "sippo-vroidsdk-test2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "fmt": "prettier --write '**/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@charcoal-ui/react": "^3.1.0",
+    "@charcoal-ui/styled": "^3.1.1",
+    "@gltf-transform/core": "^3.4.8",
+    "@pixiv/three-vrm": "^1.0.10",
+    "@react-three/drei": "^9.78.1",
+    "@react-three/fiber": "^8.13.4",
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.9",
+    "@types/three": "^0.153.0",
+    "eslint": "^8.42.0",
+    "eslint-config-next": "13.4.4",
+    "next": "13.4.4",
+    "next-auth": "3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-three-fiber": "^6.0.13",
+    "react-use": "^17.4.0",
+    "styled-components": "^6.0.5",
+    "three": "^0.154.0",
+    "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "printWidth": 120
+  },
+  "devDependencies": {
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "webpack-bundle-analyzer": "^4.9.0"
+  }
+}
