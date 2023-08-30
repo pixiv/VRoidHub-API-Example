@@ -51,7 +51,7 @@ export default function Model() {
           <ProgressBar max={+size} value={fetchedSize} />
         </ProgressBarContainer>
       ) : (
-        <Canvas>
+        <Canvas flat>
           <PerspectiveCamera makeDefault position={[-0.12, 1, 4]} />
           <Avator vrm={vrm} />
           <directionalLight />
