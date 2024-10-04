@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // それぞれのモデルについて、パラメータを集める
   const resJson: { maxId: string | null; data: Array<ModelData> } = { maxId: null, data: [] };
   if (apiResJson._links.next) {
-    const url = new URL(apiResJson._links.next.href, 'http://hub.vroid.com');
+    const url = new URL(apiResJson._links.next.href, process.env.NEXT_PUBLIC_VROID_HUB_URL);
     resJson.maxId = url.searchParams.get('max_id');
   }
 

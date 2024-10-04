@@ -41,25 +41,25 @@ export async function fetchVRMModel(id: string, token: string): Promise<string |
 
 export const vroidHubApi = {
   getAccountCharacterModels: (token: string, options: { max_id?: string; count?: number } = {}) => {
-    const url = new URL('https://hub.vroid.com/api/account/character_models');
+    const url = new URL(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/account/character_models`);
     if (options.max_id) url.searchParams.append('max_id', options.max_id);
     if (options.count) url.searchParams.append('count', options.count.toString(10));
     return fetchWithAuthorized(url.toString(), token);
   },
   getHeartCharacterModels: (token: string, options: { max_id?: string; count?: number } = {}) => {
-    const url = new URL('https://hub.vroid.com/api/hearts');
+    const url = new URL(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/hearts`);
     if (options.max_id) url.searchParams.append('max_id', options.max_id);
     if (options.count) url.searchParams.append('count', options.count.toString(10));
     return fetchWithAuthorized(url.toString(), token);
   },
   getStaffPicksModels: (token: string, options: { max_id?: string; count?: number } = {}) => {
-    const url = new URL('https://hub.vroid.com/api/staff_picks');
+    const url = new URL(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/staff_picks`);
     if (options.max_id) url.searchParams.append('max_id', options.max_id);
     if (options.count) url.searchParams.append('count', options.count.toString(10));
     return fetchWithAuthorized(url.toString(), token);
   },
   postDownloadLicense: (token: string, modelId: string) => {
-    return fetchWithAuthorized('https://hub.vroid.com/api/download_licenses', token, {
+    return fetchWithAuthorized(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/download_licenses`, token, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const vroidHubApi = {
     });
   },
   getDownloadLicenseDownload: (token: string, licenseId: string) => {
-    return fetchWithAuthorized(`https://hub.vroid.com/api/download_licenses/${licenseId}/download`, token, {
+    return fetchWithAuthorized(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/download_licenses/${licenseId}/download`, token, {
       method: 'GET',
       // リダイレクト先URLを取得するため、redirect: manualにする
       redirect: 'manual',
