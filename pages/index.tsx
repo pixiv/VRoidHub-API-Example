@@ -140,7 +140,7 @@ export default function Index() {
 
           <ToVRoidHubButtonWrapper>
             <div style={{ width: '264px', display: 'grid' }}>
-              <Button variant="Navigation" fullWidth size="S" onClick={() => router.push('https://hub.vroid.com/')}>
+            <Button variant="Navigation" fullWidth size="S" onClick={() => router.push(process.env.NEXT_PUBLIC_VROID_HUB_URL)}>
                 <ToVRoidHubButtonText>VRoid Hubでキャラクターを探す</ToVRoidHubButtonText>
               </Button>
             </div>

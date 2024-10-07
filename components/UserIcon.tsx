@@ -17,7 +17,7 @@ export function Icon({ icon_img_url, username }: IconProps) {
   }, []);
 
   const handleClickVroidHubItem = useCallback(() => {
-    router.push('https://hub.vroid.com/');
+    router.push(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}`);
   }, [router]);
 
   const handleClickLogout = useCallback(() => signOut(), []);
