@@ -53,7 +53,7 @@ export default function Model() {
       ) : (
         <Canvas flat>
           <PerspectiveCamera makeDefault position={[-0.12, 1, 4]} />
-          <Avator vrm={vrm} />
+          <Avatar vrm={vrm} />
           <directionalLight />
         </Canvas>
       )}
@@ -67,7 +67,7 @@ export default function Model() {
 }
 
 /** VRMアバターを表示するコンポーネント */
-const Avator = ({ vrm }: { vrm: VRM }) => {
+const Avatar = ({ vrm }: { vrm: VRM }) => {
   const vrmaRef = useRef<VRMAnimation>();
   const mixer = useRef<THREE.AnimationMixer>();
   const action = useRef<THREE.AnimationAction>();
