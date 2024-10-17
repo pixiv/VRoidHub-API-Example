@@ -30,8 +30,8 @@ export default function Model() {
     if (!root) return;
 
     const resizeCanvas = () => {
-      root.style.width = `${String(document.documentElement.clientWidth)}px`;
-      root.style.height = `${String(document.documentElement.clientHeight)}px`;
+      root.style.width = `${document.documentElement.clientWidth}px`;
+      root.style.height = `${document.documentElement.clientHeight}px`;
     };
     resizeCanvas();
 
