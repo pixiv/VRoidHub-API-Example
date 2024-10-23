@@ -6,13 +6,13 @@ import styled from 'styled-components';
 import { ProgressBar } from '../components/progressBar';
 
 // for vrm
-import { loadVRMAnimation } from '../lib/VRMAnimation/loadVRMAnimation';
-import { VRMAnimation } from '../lib/VRMAnimation/VRMAnimation';
 import * as THREE from 'three';
 import { VRM } from '@pixiv/three-vrm';
 import { useVRM } from '../lib/useVRM';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { createVRMAnimationClip, VRMAnimation, VRMAnimationLoaderPlugin } from '@pixiv/three-vrm-animation';
 
 export default function Model() {
   const router = useRouter();
@@ -68,7 +68,6 @@ export default function Model() {
 
 /** VRMアバターを表示するコンポーネント */
 const Avatar = ({ vrm }: { vrm: VRM }) => {
-  const vrmaRef = useRef<VRMAnimation>();
   const mixer = useRef<THREE.AnimationMixer>();
   const action = useRef<THREE.AnimationAction>();
   const [show, setShow] = useState(false);
@@ -83,23 +82,30 @@ const Avatar = ({ vrm }: { vrm: VRM }) => {
     }
   });
 
+  const vrmaContainer = useLoader(GLTFLoader, '/idle_loop.vrma', (loader) => {
+    loader.register((parser) => {
+      return new VRMAnimationLoaderPlugin(parser);
+    });
+  });
+
+  const vrma = (vrmaContainer.userData.vrmAnimations?.[0] ?? undefined) as VRMAnimation | undefined;
+
   useEffect(() => {
     const loadAnimation = async () => {
       if (!vrm) return;
-
-      vrmaRef.current = await loadVRMAnimation('/idle_loop.vrma');
+      if (!vrma) return;
 
       const mixerTmp: THREE.AnimationMixer = new THREE.AnimationMixer(vrm.scene);
       mixer.current = mixerTmp;
 
-      const clip = vrmaRef.current.createAnimationClip(vrm);
+      const clip = createVRMAnimationClip(vrma, vrm);
       action.current = mixer.current.clipAction(clip);
       action.current.play();
 
       setShow(true);
     };
     loadAnimation();
-  }, [vrm]);
+  }, [vrm, vrma]);
 
   return show ? <primitive object={vrm.scene}></primitive> : <></>;
 };
