@@ -141,7 +141,7 @@ const EachModel = ({ model }: { model: ModelData }) => {
             />
             <LicenseRow
               style={model.license.personalNonCommercialUse ? 'ok' : 'ng'}
-              title="┗  個人の非営利目的の活動（同人誌活動）のみ"
+              title="┗  個人の非営利目的の活動（同人活動等）のみ"
             />
             <LicenseRow style={model.license.modification ? 'ok' : 'ng'} title="改変" />
             <LicenseRow style={model.license.redistribution ? 'ok' : 'ng'} title="再配布" />
