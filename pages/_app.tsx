@@ -1,4 +1,4 @@
-import { Provider } from 'next-auth/client';
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { light } from '@charcoal-ui/theme';
 import { CharcoalProvider, OverlayProvider, SSRProvider } from '@charcoal-ui/react';
@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
         <meta property="og:title" content="VRoid Hub API Example" />
         <meta property="og:description" content="Simple example of VRoid Hub API" />
       </Head>
-      <Provider session={pageProps.session}>
+      <SessionProvider session={pageProps.session}>
         <SSRProvider>
           <CharcoalProvider themeMap={{ ':root': light }}>
             <OverlayProvider>
@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }) {
             </OverlayProvider>
           </CharcoalProvider>
         </SSRProvider>
-      </Provider>
+      </SessionProvider>
     </>
   );
 }

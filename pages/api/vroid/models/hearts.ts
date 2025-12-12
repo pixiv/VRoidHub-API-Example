@@ -1,5 +1,5 @@
-import { getSession } from 'next-auth/client';
-import type { CharacterModelCollectionResponse, CharacterModelSerializer } from '@/types/Response';
+import { getSession } from 'next-auth/react';
+import { CharacterModelCollectionResponse, CharacterModelSerializer } from '../../../../types/Response';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { vroidHubApi } from '@/lib/vroid-hub-api';
 

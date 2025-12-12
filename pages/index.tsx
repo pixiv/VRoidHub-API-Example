@@ -1,4 +1,5 @@
-import { signIn, useSession } from 'next-auth/client';
+import { signIn, useSession } from 'next-auth/react';
+
 import React, { useCallback, useState } from 'react';
 import { useAsync } from 'react-use';
 import { useRouter } from 'next/router';
@@ -15,7 +16,7 @@ type ModelsListState = {
 };
 
 export default function Index() {
-  const [session] = useSession();
+  const { data: session } = useSession()
   const router = useRouter();
 
   //　ユーザーが保持しているモデルの一覧
