@@ -6,18 +6,14 @@ declare module "next-auth" {
   interface Session {
     accessToken?: string;
   }
-}
 
-declare module "next-auth" {
   interface OAuthConfig {
     scope?: string;
     params: {
       grant_type: 'string'
     }
   }
-}
 
-declare module "next-auth" {
   interface Profile {
     id?: string;
     scope?: string;
