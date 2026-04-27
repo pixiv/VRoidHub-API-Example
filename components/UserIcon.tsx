@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
-import { signOut } from 'next-auth/client';
+import { signOut } from 'next-auth/react';
 import styled from 'styled-components';
 
 type IconProps = {

@@ -26,10 +26,10 @@
 
 mainブランチの最新のコードで動作している<a href="https://main.d3s7y579k91bnt.amplifyapp.com/" target="_blank" rel="noopener noreferrer">デモ</a>を公開しています。
 
-## 推奨動作環境
+## 確認済動作環境
 
-- Node.js: v18.16.0
-- yarn: 1.22.19
+- Node.js: v24.12.0
+- yarn: 1.22.22
 - 推奨ブラウザ: Chrome
 
 ## セットアップと実行
