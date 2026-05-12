@@ -4,7 +4,7 @@ import * as THREE from 'three/webgpu';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export function useVRM(id: string): {
-  /** vrm本体　 */
+  /** vrm本体 */
   vrm: VRM;
   /** fetch済みのサイズ(byte) */
   fetchedSize: number;
@@ -25,7 +25,7 @@ export function useVRM(id: string): {
       const vrmReader = res.body.getReader();
 
       let receivedBytes = 0;
-      let chunks = [];
+      const chunks = [];
       while (true) {
         const { done, value } = await vrmReader.read();
         if (done) break;

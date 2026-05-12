@@ -1,6 +1,4 @@
 /* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
 
 import type { AttachedItemCoinSerializer } from './AttachedItemCoinSerializer';
 

@@ -70,13 +70,17 @@ export const vroidHubApi = {
     });
   },
   getDownloadLicenseDownload: (token: string, licenseId: string) => {
-    return fetchWithAuthorized(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/download_licenses/${licenseId}/download`, token, {
-      method: 'GET',
-      // リダイレクト先URLを取得するため、redirect: manualにする
-      redirect: 'manual',
-      headers: {
-        'Accept-Encoding': 'gzip',
+    return fetchWithAuthorized(
+      `${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/download_licenses/${licenseId}/download`,
+      token,
+      {
+        method: 'GET',
+        // リダイレクト先URLを取得するため、redirect: manualにする
+        redirect: 'manual',
+        headers: {
+          'Accept-Encoding': 'gzip',
+        },
       },
-    });
+    );
   },
 };

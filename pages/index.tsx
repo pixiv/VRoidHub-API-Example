@@ -16,7 +16,7 @@ type ModelsListState = {
 };
 
 export default function Index() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
   const router = useRouter();
 
   //　ユーザーが保持しているモデルの一覧

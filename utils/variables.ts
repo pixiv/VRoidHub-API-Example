@@ -5,7 +5,7 @@ import { themeSelector } from '@charcoal-ui/styled';
 export type ExampleTheme = typeof light & CharcoalTheme;
 
 declare module 'styled-components' {
-  interface DefaultTheme extends ExampleTheme {}
+  interface DefaultTheme extends ExampleTheme {} // eslint-disable-line @typescript-eslint/no-empty-object-type
 }
 
 export interface ThemeMap<T extends Pick<CharcoalAbstractTheme, 'color' | 'effect' | 'border'>> {

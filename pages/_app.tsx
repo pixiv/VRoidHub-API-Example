@@ -12,7 +12,7 @@ import isValidProp from '@emotion/is-prop-valid';
 
 export default function App({ Component, pageProps }) {
   return (
-    <StyleSheetManager shouldForwardProp={propName => isValidProp(propName)}>
+    <StyleSheetManager shouldForwardProp={(propName) => isValidProp(propName)}>
       <Head>
         <title>VRoid Hub API Example</title>
         <meta property="description" content="Simple example of VRoid Hub API" />

@@ -1,8 +1,12 @@
-import NextAuth from 'next-auth';
-import { DefaultSession } from "next-auth";
-import { JWT } from "next-auth/jwt";
+// NextAuth用の型定義
+// これがないとpages/api/auth/[...nextauth].tsが型エラーになる
 
-declare module "next-auth" {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import NextAuth from 'next-auth';
+import { DefaultSession } from 'next-auth';
+import { JWT } from 'next-auth/jwt';
+
+declare module 'next-auth' {
   interface Session {
     accessToken?: string;
   }
@@ -10,8 +14,8 @@ declare module "next-auth" {
   interface OAuthConfig {
     scope?: string;
     params: {
-      grant_type: 'string'
-    }
+      grant_type: 'string';
+    };
   }
 
   interface Profile {
@@ -20,9 +24,9 @@ declare module "next-auth" {
   }
 }
 
-declare module "next-auth/jwt" {
+declare module 'next-auth/jwt' {
   interface JWT {
     accessToken?: string;
   }
 }
-
+/* eslint-enable @typescript-eslint/no-unused-vars */

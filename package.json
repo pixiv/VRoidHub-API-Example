@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "fmt": "prettier --write '**/*.{ts,tsx}'"
+    "lint": "eslint --fix '{src,types,pages,utils,lib,components}/**/*.ts'",
+    "fmt": "prettier --write '{src,types,pages,utils,lib,components}/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@charcoal-ui/react": "^5.10.0",
@@ -22,7 +22,7 @@
     "@types/react": "^19.2.14",
     "@types/three": "^0.184.1",
     "add": "^2.0.6",
-    "eslint": "^9.39.4",
+    "eslint": "^10.3.0",
     "eslint-config-next": "16.2.6",
     "jsonwebtoken": "^9.0.2",
     "jwa": "^2.0.1",
@@ -49,8 +49,12 @@
     "printWidth": 120
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.6.0",
     "lint-staged": "^17.0.4",
     "prettier": "^3.0.0",
+    "typescript-eslint": "^8.59.3",
     "webpack-bundle-analyzer": "^5.3.0"
   }
 }

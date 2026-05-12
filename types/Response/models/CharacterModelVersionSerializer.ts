@@ -1,6 +1,4 @@
 /* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
 
 import type { AttachedItemSerializer } from './AttachedItemSerializer';
 import type { ModelBasisConversionStateSerializer } from './ModelBasisConversionStateSerializer';
@@ -22,7 +20,7 @@ export type CharacterModelVersionSerializer = {
   is_vendor_protected_download: boolean;
   is_vendor_forbidden_other_users_preview: boolean;
   original_file_size: number | null;
-  vrm_meta: any;
+  vrm_meta: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   original_compressed_file_size: number | null;
   conversion_state?: ModelBasisConversionStateSerializer;
   vendor_specified_license?: VendorSpecifiedLicenseSerializer;
