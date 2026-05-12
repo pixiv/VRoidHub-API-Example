@@ -1,6 +1,7 @@
 import { VRM, VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm';
 import { useEffect, useRef, useState } from 'react';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import * as THREE from 'three/webgpu';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export function useVRM(id: string): {
   /** vrm本体　 */
@@ -14,7 +15,7 @@ export function useVRM(id: string): {
 
   const [vrm, setVrm] = useState<VRM | null>(null);
   const [fetchedSize, setFetchedSize] = useState<number>(0);
-  const refVRM = useRef<VRM>();
+  const refVRM = useRef<VRM>(null);
 
   useEffect(() => {
     const fetchModel = async () => {

@@ -7,10 +7,12 @@ import { themeMap } from '../utils/variables';
 import Head from 'next/head';
 import '@charcoal-ui/react/dist/index.css';
 import '@charcoal-ui/react/dist/layered.css';
+import { StyleSheetManager } from 'styled-components';
+import isValidProp from '@emotion/is-prop-valid';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <StyleSheetManager shouldForwardProp={propName => isValidProp(propName)}>
       <Head>
         <title>VRoid Hub API Example</title>
         <meta property="description" content="Simple example of VRoid Hub API" />
@@ -30,7 +32,7 @@ export default function App({ Component, pageProps }) {
           </CharcoalProvider>
         </SSRProvider>
       </SessionProvider>
-    </>
+    </StyleSheetManager>
   );
 }
 
