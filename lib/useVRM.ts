@@ -1,6 +1,6 @@
 import { VRM, VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm';
 import { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three/webgpu';
+import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export function useVRM(id: string): {

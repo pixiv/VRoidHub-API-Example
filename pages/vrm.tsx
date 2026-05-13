@@ -54,8 +54,7 @@ export default function Model() {
         <Canvas flat>
           <PerspectiveCamera makeDefault position={[-0.12, 1, 4]} />
           <Avatar vrm={vrm} />
-          <directionalLight />
-          <ambientLight />
+          <directionalLight intensity={Math.PI} />
         </Canvas>
       )}
       <ButtonContainer>
