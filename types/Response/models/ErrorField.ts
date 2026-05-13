@@ -1,9 +1,7 @@
 /* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
 
 export type ErrorField = {
   code?: string;
   message?: string;
-  details?: any;
+  details?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };

@@ -1,6 +1,4 @@
 /* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
 
 export type CharacterModelBoothItemSerializer = {
   booth_item_id: number;

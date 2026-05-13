@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useLayoutEffect, useState, useRef, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
 import { Button } from '@charcoal-ui/react';
@@ -11,7 +11,7 @@ import { VRM } from '@pixiv/three-vrm';
 import { useVRM } from '../lib/useVRM';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { createVRMAnimationClip, VRMAnimation, VRMAnimationLoaderPlugin } from '@pixiv/three-vrm-animation';
 
 export default function Model() {
@@ -54,7 +54,7 @@ export default function Model() {
         <Canvas flat>
           <PerspectiveCamera makeDefault position={[-0.12, 1, 4]} />
           <Avatar vrm={vrm} />
-          <directionalLight />
+          <directionalLight intensity={Math.PI} />
         </Canvas>
       )}
       <ButtonContainer>
@@ -68,8 +68,8 @@ export default function Model() {
 
 /** VRMアバターを表示するコンポーネント */
 const Avatar = ({ vrm }: { vrm: VRM }) => {
-  const mixer = useRef<THREE.AnimationMixer>();
-  const action = useRef<THREE.AnimationAction>();
+  const mixer = useRef<THREE.AnimationMixer>(null);
+  const action = useRef<THREE.AnimationAction>(null);
   const [show, setShow] = useState(false);
 
   useFrame((state, delta) => {

@@ -1,13 +1,18 @@
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { light } from '@charcoal-ui/theme';
+import { TokenInjector } from '@charcoal-ui/styled';
 import { CharcoalProvider, OverlayProvider, SSRProvider } from '@charcoal-ui/react';
-import '../src/globals.css';
+import { light } from '@charcoal-ui/theme';
+import { themeMap } from '../utils/variables';
 import Head from 'next/head';
+import '@charcoal-ui/react/dist/index.css';
+import '@charcoal-ui/react/dist/layered.css';
+import { StyleSheetManager } from 'styled-components';
+import isValidProp from '@emotion/is-prop-valid';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <StyleSheetManager shouldForwardProp={(propName) => isValidProp(propName)}>
       <Head>
         <title>VRoid Hub API Example</title>
         <meta property="description" content="Simple example of VRoid Hub API" />
@@ -16,23 +21,24 @@ export default function App({ Component, pageProps }) {
       </Head>
       <SessionProvider session={pageProps.session}>
         <SSRProvider>
-          <CharcoalProvider themeMap={{ ':root': light }}>
-            <OverlayProvider>
-              <ThemeProvider theme={light}>
-                <GlobalStyle />
+          <CharcoalProvider>
+            <ThemeProvider theme={light}>
+              <TokenInjector theme={themeMap} />
+              <GlobalStyle />
+              <OverlayProvider>
                 <Component {...pageProps} />
-              </ThemeProvider>
-            </OverlayProvider>
+              </OverlayProvider>
+            </ThemeProvider>
           </CharcoalProvider>
         </SSRProvider>
       </SessionProvider>
-    </>
+    </StyleSheetManager>
   );
 }
 
 const GlobalStyle = createGlobalStyle`
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: ${(props) => props.theme.typography.size[14].fontSize}px;
-}
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: ${(props) => props.theme.typography.size[14].fontSize}px;
+  }
 `;

@@ -1,6 +1,6 @@
 import { signIn, useSession } from 'next-auth/react';
 
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useAsync } from 'react-use';
 import { useRouter } from 'next/router';
 import { Button } from '@charcoal-ui/react';
@@ -16,7 +16,7 @@ type ModelsListState = {
 };
 
 export default function Index() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
   const router = useRouter();
 
   //　ユーザーが保持しているモデルの一覧

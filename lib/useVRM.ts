@@ -1,9 +1,10 @@
 import { VRM, VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm';
 import { useEffect, useRef, useState } from 'react';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export function useVRM(id: string): {
-  /** vrm本体　 */
+  /** vrm本体 */
   vrm: VRM;
   /** fetch済みのサイズ(byte) */
   fetchedSize: number;
@@ -14,7 +15,7 @@ export function useVRM(id: string): {
 
   const [vrm, setVrm] = useState<VRM | null>(null);
   const [fetchedSize, setFetchedSize] = useState<number>(0);
-  const refVRM = useRef<VRM>();
+  const refVRM = useRef<VRM>(null);
 
   useEffect(() => {
     const fetchModel = async () => {
@@ -24,7 +25,7 @@ export function useVRM(id: string): {
       const vrmReader = res.body.getReader();
 
       let receivedBytes = 0;
-      let chunks = [];
+      const chunks = [];
       while (true) {
         const { done, value } = await vrmReader.read();
         if (done) break;

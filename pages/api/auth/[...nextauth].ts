@@ -9,48 +9,46 @@ export default NextAuth({
       type: 'oauth',
       authorization: {
         url: `${process.env.NEXT_PUBLIC_VROID_HUB_URL}/authorize/confirm?response_type=code`,
-        params: { scope: 'default' }
+        params: { scope: 'default' },
       },
       token: {
         // v4でheadersを付与する場合独自拡張が必要になった https://next-auth.js.org/configuration/providers/oauth#token-option
         url: `${process.env.NEXT_PUBLIC_VROID_HUB_URL}/oauth/token`,
         params: { grant_type: 'authorization_code' },
         async request({ params, client, checks }) {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_VROID_HUB_URL}/oauth/token`, {
-              headers: {
-                'X-Api-Version': '11' // VRoidHubAPI独自
-              },
-              method: 'POST',
-              body: new URLSearchParams({
-                ...params,
-                client_id: client.client_id as string,
-                client_secret: client.client_secret as string,
-                grant_type: 'authorization_code',
-                code_verifier: checks.code_verifier as string,
-                redirect_uri: client.redirect_uris[0],
-              })
+          const response = await fetch(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/oauth/token`, {
+            headers: {
+              'X-Api-Version': '11', // VRoidHubAPI独自
             },
-          )
+            method: 'POST',
+            body: new URLSearchParams({
+              ...params,
+              client_id: client.client_id as string,
+              client_secret: client.client_secret as string,
+              grant_type: 'authorization_code',
+              code_verifier: checks.code_verifier as string,
+              redirect_uri: client.redirect_uris[0],
+            }),
+          });
 
           return { tokens: await response.json() };
-        }
+        },
       },
       userinfo: {
         url: `${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/account`,
         async request({ tokens }) {
           const response = await fetch(`${process.env.NEXT_PUBLIC_VROID_HUB_URL}/api/account`, {
             headers: {
-              'Authorization': `${tokens.token_type} ${tokens.access_token}`,
+              Authorization: `${tokens.token_type} ${tokens.access_token}`,
               'X-Api-Version': '11', // VRoidHubAPI独自
-            }
+            },
           });
 
           return await response.json();
         },
       },
       checks: ['pkce', 'state'],
-      async profile(profile: any) {
+      async profile(profile: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
         return {
           id: profile.data.user_detail.user.id,
           name: profile.data.user_detail.user.name,
@@ -74,5 +72,5 @@ export default NextAuth({
       session.accessToken = token.accessToken;
       return session;
     },
-  }
+  },
 });

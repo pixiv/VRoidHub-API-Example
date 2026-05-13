@@ -28,7 +28,7 @@ mainブランチの最新のコードで動作している<a href="https://main.
 
 ## 確認済動作環境
 
-- Node.js: v24.12.0
+- Node.js: v25.9.0
 - yarn: 1.22.22
 - 推奨ブラウザ: Chrome
 

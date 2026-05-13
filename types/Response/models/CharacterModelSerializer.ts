@@ -1,6 +1,4 @@
 /* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
 
 import type { AgeLimitSerializer } from './AgeLimitSerializer';
 import type { CharacterModelBoothItemSerializer } from './CharacterModelBoothItemSerializer';
