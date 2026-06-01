@@ -29,7 +29,7 @@ mainブランチの最新のコードで動作している<a href="https://main.
 ## 確認済動作環境
 
 - Node.js: v25.9.0
-- yarn: 1.22.22
+- npm: 11.12.1
 - 推奨ブラウザ: Chrome
 
 ## セットアップと実行
@@ -69,13 +69,13 @@ NEXT_PUBLIC_VROID_HUB_URL= https://hub.vroid.com と入力してください
 3. 必要なパッケージをインストールしてください。
 
 ```
-yarn install
+npm install
 ```
 
 4. パッケージのインストール完了後、下記コマンドで開発用webサーバーが起動します
 
 ```
-yarn dev
+npm run dev
 ```
 
 5. 実行後、以下のURLにアクセスして動作を確認してください
