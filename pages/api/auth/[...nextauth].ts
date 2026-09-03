@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 
 export default NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     {
       id: 'vroid',
@@ -66,11 +67,6 @@ export default NextAuth({
       }
 
       return token;
-    },
-
-    async session({ session, token }) {
-      session.accessToken = token.accessToken;
-      return session;
     },
   },
 });

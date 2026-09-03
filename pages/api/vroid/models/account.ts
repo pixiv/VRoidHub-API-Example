@@ -1,7 +1,7 @@
-import { getSession } from 'next-auth/react';
 import type { CharacterModelCollectionResponse, CharacterModelSerializer } from '@/types/Response';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { vroidHubApi } from '@/lib/vroid-hub-api';
+import { getAccessToken } from '@/lib/auth';
 
 type Query = {
   max_id: string;
@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const query = req.query as Query;
 
   // oauthのアクセストークンを取得
-  const token: string = (await getSession({ req }))?.accessToken as string;
+  const token = await getAccessToken(req);
 
   if (!token) {
     // トークンを保持していなければ401
