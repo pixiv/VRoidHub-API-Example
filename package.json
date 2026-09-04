@@ -15,12 +15,12 @@
     "@charcoal-ui/styled": "^5.12.0",
     "@charcoal-ui/theme": "^5.12.0",
     "@gltf-transform/core": "4.3.0",
-    "@pixiv/three-vrm": "^3.1.4",
-    "@pixiv/three-vrm-animation": "^3.1.4",
-    "@react-three/drei": "^10.7.7",
+    "@pixiv/three-vrm": "^3.5.5",
+    "@pixiv/three-vrm-animation": "^3.5.5",
+    "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "9.6.1",
     "@types/node": "^25.7.0",
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.18",
     "@types/three": "^0.184.1",
     "eslint": "^10.4.0",
     "eslint-config-next": "16.3.3",
@@ -29,10 +29,10 @@
     "jws": "^4.0.1",
     "next": "16.3.3",
     "next-auth": "4.24.15",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-use": "^17.4.0",
-    "styled-components": "^6.0.5",
+    "styled-components": "^6.5.3",
     "three": "^0.184.0",
     "typescript": "^6.0.3"
   },
@@ -53,8 +53,8 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.6.0",
     "lint-staged": "^17.0.5",
-    "prettier": "^3.0.0",
+    "prettier": "^3.9.6",
     "typescript-eslint": "^8.60.0",
-    "webpack-bundle-analyzer": "^5.3.0"
+    "webpack-bundle-analyzer": "^5.3.2"
   }
 }
