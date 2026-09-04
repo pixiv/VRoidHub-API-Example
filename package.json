@@ -11,9 +11,9 @@
     "fmt": "prettier --write '{src,types,pages,utils,lib,components}/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@charcoal-ui/react": "^5.12.0",
-    "@charcoal-ui/styled": "^5.12.0",
-    "@charcoal-ui/theme": "^5.12.0",
+    "@charcoal-ui/react": "^6.1.0",
+    "@charcoal-ui/styled": "^6.1.0",
+    "@charcoal-ui/theme": "^6.1.0",
     "@gltf-transform/core": "4.3.0",
     "@pixiv/three-vrm": "^3.5.5",
     "@pixiv/three-vrm-animation": "^3.5.5",
@@ -30,7 +30,9 @@
     "next": "16.3.3",
     "next-auth": "4.24.15",
     "react": "19.2.8",
+    "react-aria": "^3.52.0",
     "react-dom": "19.2.8",
+    "react-stately": "^3.50.0",
     "react-use": "^17.4.0",
     "styled-components": "^6.5.3",
     "three": "^0.184.0",
