@@ -61,7 +61,7 @@ git clone git@github.com:pixiv/VRoidHub-API-Example.git
 ```
 CLIENT_ID= アプリケーションページから閲覧できるアプリケーションIDの値を入力してください
 CLIENT_SECRET= アプリケーションページから閲覧できるシークレットの値を入力してください
-NEXT_PUBLIC_NEXTAUTH_SECRET= openssl rand -base64 32 コマンドで生成したシークレット値を入力してください
+NEXTAUTH_SECRET= openssl rand -base64 32 コマンドで生成したシークレット値を入力してください
 NEXTAUTH_URL= ExampleをホストしているURLのroot URLを入力してください
 NEXT_PUBLIC_VROID_HUB_URL= https://hub.vroid.com と入力してください
 ```

@@ -1,6 +1,12 @@
 import NextAuth from 'next-auth';
 
+const nextAuthSecret = process.env.NEXTAUTH_SECRET;
+if (!nextAuthSecret) {
+  throw new Error('NEXTAUTH_SECRET is not set');
+}
+
 export default NextAuth({
+  secret: nextAuthSecret,
   providers: [
     {
       id: 'vroid',
@@ -66,11 +72,6 @@ export default NextAuth({
       }
 
       return token;
-    },
-
-    async session({ session, token }) {
-      session.accessToken = token.accessToken;
-      return session;
     },
   },
 });

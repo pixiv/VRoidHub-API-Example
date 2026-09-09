@@ -1,6 +1,6 @@
-import { getSession } from 'next-auth/react';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { fetchVRMModel } from '../../../lib/vroid-hub-api';
+import { getAccessToken } from '../../../lib/auth';
 
 type Query = {
   id?: string;
@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'please specify the id.' });
   }
 
-  const token = (await getSession({ req }))?.accessToken as string | undefined;
+  const token = await getAccessToken(req);
 
   // tokenが取れなかった時は401
   if (!token) {
