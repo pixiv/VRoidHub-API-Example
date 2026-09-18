@@ -5,6 +5,7 @@ import { CharcoalProvider, OverlayProvider, SSRProvider } from '@charcoal-ui/rea
 import { light } from '@charcoal-ui/theme';
 import { themeMap } from '../utils/variables';
 import Head from 'next/head';
+import '@charcoal-ui/theme/css/v1/remap.css';
 import '@charcoal-ui/react/dist/index.css';
 import '@charcoal-ui/react/dist/layered.css';
 import { StyleSheetManager } from 'styled-components';
